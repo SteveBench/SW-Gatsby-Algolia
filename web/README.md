@@ -1,0 +1,1 @@
+SW-Gatsby-Algolia-web

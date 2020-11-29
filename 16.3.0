@@ -1,0 +1,8 @@
++ react@17.0.1
+added 1 package and audited 987 packages in 7.001s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details

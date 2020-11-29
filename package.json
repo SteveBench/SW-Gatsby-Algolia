@@ -16,5 +16,14 @@
   "devDependencies": {
     "@sanity/cli": "^2.0.0",
     "lerna": "^3.13.1"
+  },
+  "dependencies": {
+    "@octokit/core": "^3.2.1",
+    "algoliasearch": "^4.8.2",
+    "dotenv": "^8.2.0",
+    "gatsby-plugin-algolia": "^0.16.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-instantsearch-dom": "^6.8.2"
   }
 }

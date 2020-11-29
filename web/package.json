@@ -16,7 +16,7 @@
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/image-url": "^0.140.19",
     "date-fns": "^1.30.1",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
@@ -38,14 +38,20 @@
     "tailwindcss": "^1.1.4"
   },
   "dependencies": {
+    "@octokit/core": "3.2.1",
     "@sanity/client": "^2.0.0",
+    "algoliasearch": "^4.8.2",
     "gatsby-image": "^2.0.41",
+    "gatsby-plugin-algolia": "^0.16.1",
     "gatsby-plugin-google-analytics": "^2.1.34",
     "gatsby-plugin-sharp": "^2.4.4",
     "gatsby-source-filesystem": "^2.1.47",
     "gatsby-transformer-sharp": "^2.3.13",
     "katex": "^0.11.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-instagram-embed": "^1.5.0",
+    "react-instantsearch-dom": "^6.8.2",
     "react-player": "^1.15.2"
   }
 }

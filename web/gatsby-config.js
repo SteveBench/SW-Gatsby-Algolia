@@ -1,6 +1,6 @@
 // Load variables from `.env` as soon as possible
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}`
+  path: `.env.${process.env.NODE_ENV || "production"}`
 });
 
 const path = require("path");
@@ -29,6 +29,14 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd
       }
+    }, {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, 
+        chunkSize: 10000, 
+      },
     }
   ]
 };

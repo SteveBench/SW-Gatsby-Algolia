@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { graphql } from "gatsby";
 
 import Hero from "../components/hero";
+import Swsearch from "../components/swsearch";
 import InfoRows from "../components/InfoRows";
 import CTAColumns from "../components/cta-columns";
 import CTA from "../components/cta";
@@ -77,6 +78,9 @@ const Page = (props) => {
         case "hero":
           el = <Hero key={c._key} {...c} />;
           break;
+          case "swsearch":
+            el = <Swsearch key={c._key} {...c} />;
+            break;
         case "ctaColumns":
           el = <CTAColumns key={c._key} {...c} />;
           break;

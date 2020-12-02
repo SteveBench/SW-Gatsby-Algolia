@@ -25,7 +25,7 @@ export default {
         { type: 'pricing' },
         { type: 'uiComponentRef' },
         { type: 'hero' },
-        { type: 'swsearch' },
+        { type: 'swcomponent' },
         { type: 'infoRows' },
         { type: 'ctaColumns' },
         { type: 'ctaPlug' },

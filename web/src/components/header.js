@@ -2,14 +2,18 @@ import { Link } from "gatsby";
 import React from "react";
 import CTALink from "./CTALink";
 import logo from "../images/Sofology-Logo-Standard.png";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import CustomAutocomplete from './algolia-predictive';
+import algoliasearch from 'algoliasearch/lite';
 
+import { InstantSearch} from 'react-instantsearch-dom';
 
 const NavStyles = styled.nav `
-
   background: black;
-
 `;
+
+
+
 
 const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = true }) => {
   let headerClass = "fixed w-full z-30 top-0 text-white headerStyles";
@@ -17,17 +21,22 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
 
   let navActionClass =
     "mx-auto lg:mx-0 hover:underline font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75";
-  navActionClass += !textWhite || !scrolled ? " text-gray-800" : "";
-  navActionClass += textWhite || scrolled ? " gradient text-white" : "";
+  navActionClass += !textWhite || !scrolled ? " " : "";
+  navActionClass += textWhite || scrolled ? "text-white" : "";
 
   let navContentClass =
-    "w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20";
+    "w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-white p-4 lg:p-0 z-20";
   navContentClass += !textWhite || !scrolled ? " lg:bg-transparent bg-gray-100" : "";
   navContentClass += textWhite || scrolled ? " " : "";
 
   let titleClass = "toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl";
   titleClass += !textWhite || scrolled ? " text-gray-800" : "";
   titleClass += textWhite || !scrolled ? " text-white" : "";
+
+  const appId = "1CL1G2ARPW";
+  const searchKey = "ae8f036daa5fee12150f23c86673fbb4"
+  const searchClient = algoliasearch(appId, searchKey);
+  
 
   return (
     <NavStyles id="header" className={headerClass}>
@@ -47,7 +56,20 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
                   <CTALink {...i} buttonActionClass={navActionClass} />
                 </li>
               ))}
+
+              <li>
+                <InstantSearch
+                 searchClient={searchClient}
+                 indexName="production"
+                >
+
+                <CustomAutocomplete />
+                </InstantSearch>
+                
+                </li>
             </ul>
+            
+     
           </div>
         )}
       </div>

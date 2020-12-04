@@ -105,10 +105,10 @@ const Page = (props) => {
       return el;
     });
 
-  const gradient = {
-    from: (site.primaryColor && site.primaryColor.hex) || "#d53369",
-    to: (site.secondaryColor && site.secondaryColor.hex) || "#daae51",
-  };
+  // const gradient = {
+  //   from: (site.primaryColor && site.primaryColor.hex) || "#d53369",
+  //   to: (site.secondaryColor && site.secondaryColor.hex) || "#daae51",
+  // };
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
   const pageTitle = data.route && !data.route.useSiteTitle && page.title;
@@ -119,10 +119,10 @@ const Page = (props) => {
         title={pageTitle}
         description={site.description}
         keywords={site.keywords}
-        bodyAttr={{
-          class: "leading-normal tracking-normal text-white gradient",
-        }}
-        gradient={gradient}
+        // bodyAttr={{
+        //   class: "leading-normal tracking-normal text-white gradient",
+        // }}
+        // gradient={gradient}
       />
       <div className="pt-24">{content}</div>
     </Layout>

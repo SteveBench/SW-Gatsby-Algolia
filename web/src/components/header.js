@@ -3,7 +3,7 @@ import React from "react";
 import CTALink from "./CTALink";
 import logo from "../images/Sofology-Logo-Standard.png";
 import styled from 'styled-components';
-import CustomAutocomplete from './algolia-predictive';
+import AlgoliaMicroSearch from './algolia-predictive';
 import algoliasearch from 'algoliasearch/lite';
 
 import { InstantSearch} from 'react-instantsearch-dom';
@@ -63,7 +63,7 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
                  indexName="production"
                 >
 
-                <CustomAutocomplete />
+                <AlgoliaMicroSearch />
                 </InstantSearch>
                 
                 </li>

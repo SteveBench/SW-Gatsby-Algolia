@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { InstantSearch, connectAutoComplete} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 
@@ -28,6 +28,32 @@ const Autocomplete = ({ hits, currentRefinement, refine }) => (
   );
   const CustomAutocomplete = connectAutoComplete(Autocomplete);
 
+  export default class AlgoliaMicroSearch extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        searchActive: false,
+      
+      };
+      this.activateSearch = this.activateSearch.bind(this);
+    }
+    activateSearch = () => {
+      this.setState(prevState => ({
+        searchActive: !prevState.searchActive,
+      }));
+    };
   
-  
-  export default CustomAutocomplete;
+    render() {
+      // const classes = classNames(
+      //   'u-margin-top-large u-margin-small c-micro-search',
+      //   {
+      //     'c-micro-search-open': this.state.searchActive,
+      //   }
+      // );
+      return (
+        <CustomAutocomplete  /> 
+        
+        );
+
+  }
+}

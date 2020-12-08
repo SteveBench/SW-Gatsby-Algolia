@@ -26,7 +26,6 @@ const Swcomponent = () => (
     indexName="production"
 
   >
-       <CustomAutocomplete />
 
     <SearchBox />
 

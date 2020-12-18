@@ -12,6 +12,11 @@ const Dropdown = styled.div `
      position: absolute;
      background-color: white;
      border: 1px solid black;
+     width: 100vw;
+     left: 0;
+`
+const DropdownCont = styled.ul `
+    display: flex;
 `
   
 
@@ -56,19 +61,19 @@ const Dropdown = styled.div `
             </li>
 
             
-           
+          
            
               
                
-            {currentRefinement ? <Dropdown>{hits.map(hit => (
-              <li key={hit.objectID}>{hit.name}</li>
-            ))}</Dropdown>
+            {currentRefinement ? <li><Dropdown><DropdownCont>{hits.map(hit => (
+              <li key={hit.objectID}><div><img src={hit.image} alt={hit.name}/>{hit.name}</div></li>
+            ))}</DropdownCont></Dropdown></li>
             : ''
             }
-           
+             </ul>
             
     
-          </ul>
+        
           </InstantSearch>
       
         );

@@ -15,8 +15,8 @@ import CustomAutocomplete from './algolia-predictive'
 // `
 
 
-const appId = "1CL1G2ARPW";
-const searchKey = "ae8f036daa5fee12150f23c86673fbb4"
+const appId = "IX6I8WO920";
+const searchKey = "a48810c75be34808dd19a4afa097cc2f"
 const searchClient = algoliasearch(appId, searchKey);
 const Swcomponent = () => (
 <>

@@ -1,58 +1,82 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { InstantSearch, connectAutoComplete} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
+import styled from 'styled-components'
 
-const appId = "1CL1G2ARPW";
-const searchKey = "ae8f036daa5fee12150f23c86673fbb4"
+const appId = "IX6I8WO920";
+const searchKey = "a48810c75be34808dd19a4afa097cc2f"
 const searchClient = algoliasearch(appId, searchKey);
 
-const Autocomplete = ({ hits, currentRefinement, refine }) => (
-  <InstantSearch
-    searchClient={searchClient}
-    indexName="production"
-    >
-  <ul>
-      <li>
-        <input
-          type="search"
-          value={currentRefinement}
-          onChange={event => refine(event.currentTarget.value)}
-        />
-      </li>
-      {hits.map(hit => (
-        <li key={hit.objectID}>{hit.name}</li>
-      ))}
-    </ul>
-    </InstantSearch>
-
-  );
-  const CustomAutocomplete = connectAutoComplete(Autocomplete);
+const Dropdown = styled.div `
+     color: black;
+     position: absolute;
+     background-color: white;
+     border: 1px solid black;
+`
+  
 
   export default class AlgoliaMicroSearch extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        searchActive: false,
+        searchActive: '' ,
+       
       
       };
       this.activateSearch = this.activateSearch.bind(this);
     }
+    
     activateSearch = () => {
       this.setState(prevState => ({
         searchActive: !prevState.searchActive,
       }));
     };
+  // test = event => refine(event.currentTarget.value);
   
-    render() {
-      // const classes = classNames(
-      //   'u-margin-top-large u-margin-small c-micro-search',
-      //   {
-      //     'c-micro-search-open': this.state.searchActive,
-      //   }
-      // );
-      return (
-        <CustomAutocomplete  /> 
+    render( ) {
+      
+
+      const Autocomplete = ({ hits, currentRefinement, refine }) => (
         
+        <InstantSearch
+          searchClient={searchClient}
+          indexName="production"
+          setTitle
+          currentRefinement
+          >
+        <ul>
+            <li>
+     
+              <input
+                type="search"
+                value={currentRefinement}
+        
+                onChange={event => refine(event.currentTarget.value)}
+              />
+            </li>
+
+            
+           
+           
+              
+               
+            {currentRefinement ? <Dropdown>{hits.map(hit => (
+              <li key={hit.objectID}>{hit.name}</li>
+            ))}</Dropdown>
+            : ''
+            }
+           
+            
+    
+          </ul>
+          </InstantSearch>
+      
+        );
+
+        const CustomAutocomplete = connectAutoComplete(Autocomplete);
+      return (
+       <CustomAutocomplete />
+
         );
 
   }

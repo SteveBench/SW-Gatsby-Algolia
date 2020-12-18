@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import AlgoliaMicroSearch from './algolia-predictive';
 import algoliasearch from 'algoliasearch/lite';
 
-import { InstantSearch} from 'react-instantsearch-dom';
+import { InstantSearch, connectStateResults} from 'react-instantsearch-dom';
 
 const NavStyles = styled.nav `
   background: black;
@@ -33,10 +33,12 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   titleClass += !textWhite || scrolled ? " text-gray-800" : "";
   titleClass += textWhite || !scrolled ? " text-white" : "";
 
-  const appId = "1CL1G2ARPW";
-  const searchKey = "ae8f036daa5fee12150f23c86673fbb4"
+  const appId = "IX6I8WO920";
+  const searchKey = "a48810c75be34808dd19a4afa097cc2f"
   const searchClient = algoliasearch(appId, searchKey);
   
+  
+
 
   return (
     <NavStyles id="header" className={headerClass}>
@@ -63,7 +65,7 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
                  indexName="production"
                 >
 
-                <AlgoliaMicroSearch />
+                <AlgoliaMicroSearch   />
                 </InstantSearch>
                 
                 </li>

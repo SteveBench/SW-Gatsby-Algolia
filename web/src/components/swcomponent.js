@@ -5,7 +5,7 @@ import React from 'react';
 import HitList from './hits';
 import styled from 'styled-components'
 import './algolia.css';
-import CustomAutocomplete from './algolia-predictive'
+import CustomAutocomplete from './microSearch'
 
 
 

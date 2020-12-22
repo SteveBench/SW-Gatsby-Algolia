@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-postcss",
+    `gatsby-plugin-sass`,
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
@@ -37,6 +37,7 @@ module.exports = {
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, 
         chunkSize: 10000, 
       },
-    }
+    },
+    `gatsby-plugin-postcss`
   ]
 };

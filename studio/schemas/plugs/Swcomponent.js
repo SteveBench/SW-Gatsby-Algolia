@@ -4,36 +4,37 @@ export default {
   title: 'Swcomponent',
   fields: [
     {
-      name: 'label',
-      type: 'string'
-    },
-    {
-      name: 'heading',
+      name: 'facets',
       type: 'string',
-      title: 'Heading'
+      title: 'Facets'
     },
     {
-      name: 'tagline',
-      type: 'simpleBlockContent'
+      name: 'numberOfProducts',
+      type: 'string',
+     
     },
-    {
-      name: 'illustration',
-      type: 'illustration'
-    },
-    {
-      name: 'cta',
-      type: 'cta'
-    }
+    // {
+    //   name: 'tagline',
+    //   type: 'simpleBlockContent'
+    // },
+    // {
+    //   name: 'illustration',
+    //   type: 'illustration'
+    // },
+    // {
+    //   name: 'cta',
+    //   type: 'cta'
+    // }
   ],
   preview: {
     select: {
-      title: 'heading',
+      title: 'facets',
       subtitle: 'label',
       disabled: 'disabled'
     },
     prepare({ title, disabled }) {
       return {
-        title: `Swcomponent: ${disabled ? 'DISABLED' : title}`
+        title: `Search: ${disabled ? 'DISABLED' : title}`
       }
     }
   }

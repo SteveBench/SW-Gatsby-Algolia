@@ -15,6 +15,8 @@ const NavStyles = styled.nav `
 
 
 
+
+
 const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = true }) => {
   let headerClass = "fixed w-full z-30 top-0 text-white headerStyles";
   headerClass += scrolled ? "shadow" : "";
@@ -33,8 +35,8 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   titleClass += !textWhite || scrolled ? " text-gray-800" : "";
   titleClass += textWhite || !scrolled ? " text-white" : "";
 
-  const appId = "IX6I8WO920";
-  const searchKey = "a48810c75be34808dd19a4afa097cc2f"
+  const appId = "CIBIQR9HO1";
+  const searchKey = "57c22ea832a7582222414dd12456ceac"
   const searchClient = algoliasearch(appId, searchKey);
   
   

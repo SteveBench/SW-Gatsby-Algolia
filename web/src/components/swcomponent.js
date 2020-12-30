@@ -1,6 +1,6 @@
 
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits, Pagination } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Hits, Configure, Pagination } from 'react-instantsearch-dom';
 import React from 'react';
 import HitList from './hits';
 import styled from 'styled-components'
@@ -15,24 +15,42 @@ import CustomAutocomplete from './microSearch'
 // `
 
 
-const appId = "IX6I8WO920";
-const searchKey = "a48810c75be34808dd19a4afa097cc2f"
-const searchClient = algoliasearch(appId, searchKey);
-const Swcomponent = () => (
-<>
-   
-  <InstantSearch
-    searchClient={searchClient}
-    indexName="production"
 
-  >
 
-    <SearchBox />
 
-    <Hits hitComponent={HitList} />
 
-  </InstantSearch>
-  </>
-);
+function Swcomponent(props) {
+  const appId = "CIBIQR9HO1";
+  const searchKey = "57c22ea832a7582222414dd12456ceac"
+  const searchClient = algoliasearch(appId, searchKey);
+  const facets = '[["' + props.facets + '"]]';
+  const Searchmod = () => (
+  <>
+    
+    <InstantSearch
+      searchClient={searchClient}
+      indexName="production"
+
+    >
+
+    <Configure
+            hitsPerPage={props.numberOfProducts}          
+            facetFilters={facets}
+            //filters={props.facets}
+    />
+
+      <SearchBox />
+
+      <Hits hitComponent={HitList} />
+
+    </InstantSearch>
+    </>
+  );
+  return (
+      <Searchmod />
+  );
+}
+
+
 export default Swcomponent;
 

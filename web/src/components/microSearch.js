@@ -12,6 +12,10 @@ const appId = "IX6I8WO920";
 const searchKey = "a48810c75be34808dd19a4afa097cc2f"
 const searchClient = algoliasearch(appId, searchKey);
 
+const SearchBoxStyle = styled.input `
+  color: black;
+`
+
 const Dropdown = styled.div `
      color: black;
      position: absolute;
@@ -76,12 +80,12 @@ text-align: center;
         <ul>
             <li>
      
-              <input
+              <SearchBoxStyle
                 type="search"
                 value={currentRefinement}
         
                 onChange={event => refine(event.currentTarget.value)}
-              />
+              ></SearchBoxStyle>
             </li>
 
             

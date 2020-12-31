@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'swcomponent',
-  title: 'Swcomponent',
+  name: 'searchcomponent',
+  title: 'Searchcomponent',
   fields: [
     {
       name: 'facets',
@@ -13,6 +13,32 @@ export default {
       type: 'string',
      
     },
+    {
+      name: 'title',
+      type: 'string',
+     
+    },
+    {
+      name:'carousel',
+      type:'boolean',
+      description: 'Set this to show a carousel of products',
+    },
+    {
+      name:'showHeader',
+      type:'boolean',
+      description: 'Show refinements',
+    },
+    {
+      name:'showPagination',
+      type:'boolean',
+      description: 'Show paginataion',
+    },
+    {
+      name:'showSearch',
+      type:'boolean',
+      description: 'Show searchbar',
+    },
+
     // {
     //   name: 'tagline',
     //   type: 'simpleBlockContent'
@@ -34,7 +60,7 @@ export default {
     },
     prepare({ title, disabled }) {
       return {
-        title: `Search: ${disabled ? 'DISABLED' : title}`
+        title: `Searchcomponent: ${disabled ? 'DISABLED' : title}`
       }
     }
   }

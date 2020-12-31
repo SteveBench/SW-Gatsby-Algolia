@@ -48,6 +48,7 @@ text-align: center;
       super(props);
       this.state = {
         searchActive: '' ,
+        searchCriteria: '',
        
       
       };
@@ -70,7 +71,7 @@ text-align: center;
       };
 
       const Autocomplete = ({ hits, currentRefinement, refine }) => (
-        
+      
         <InstantSearch
           searchClient={searchClient}
           indexName="production"
@@ -83,8 +84,7 @@ text-align: center;
               <SearchBoxStyle
                 type="search"
                 value={currentRefinement}
-        
-                onChange={event => refine(event.currentTarget.value)}
+                onChange={event => refine(event.currentTarget.value )}
               ></SearchBoxStyle>
             </li>
 
@@ -100,15 +100,23 @@ text-align: center;
               {hits.map(hit => (
             
               <div><img src={hit.image} alt={hit.name}/><DropdownText>{hit.name}</DropdownText></div>
-            ))}</Slider></DropdownCont></Dropdown></li>
+            ))}</Slider></DropdownCont>
+            <div className="element-viewAll"><a href={"/search/?=" + currentRefinement}>View all results</a></div>
+            </Dropdown></li>
             : ''
             }
 
+
+              <li>
+                
+
+              </li>
              </ul>
             
     
         
           </InstantSearch>
+          
       
         );
 

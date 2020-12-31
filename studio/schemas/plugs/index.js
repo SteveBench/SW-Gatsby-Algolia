@@ -1,5 +1,5 @@
 export { default as hero } from './hero'
-export { default as swcomponent } from './swcomponent'
+export { default as searchcomponent } from './searchcomponent'
 export { default as infoRows } from './infoRows'
 export { default as textWithIllustration } from './textWithIllustration'
 export { default as illustration } from './illustration'

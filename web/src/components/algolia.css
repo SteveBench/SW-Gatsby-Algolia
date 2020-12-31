@@ -24,3 +24,21 @@
     align-items: center;
     align-content: center;
 }
+
+.ais-Pagination-list {
+    display: flex;
+    justify-content: center;
+}
+
+.ais-Pagination-list li {
+    border-radius: 10px;
+    margin:5px;
+    padding:5px 10px;
+    cursor: pointer;
+    border:1px solid lightgray
+}
+
+.ais-Pagination-list li.ais-Pagination-item--selected {
+
+    background-color: lightgray;
+}

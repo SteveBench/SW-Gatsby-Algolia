@@ -1,6 +1,6 @@
 
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits, Configure, Pagination } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Hits, Configure, Pagination, CurrentRefinements } from 'react-instantsearch-dom';
 import React from 'react';
 import HitList from './hits';
 import CustomHits from './hitsCarousel';
@@ -23,12 +23,15 @@ import './algolia.css';
 
 function searchcomponent(props) {
 
+
+
   const StyledHeading = styled.h1 `
   font-size: 30px;
   text-align: center;
   margin: 20px 0;
   `
-
+  const getSearch = new URLSearchParams(window.location.search);
+  const searchVal = getSearch.get('Search-term');
 
 
   const appId = "CIBIQR9HO1";
@@ -42,6 +45,9 @@ function searchcomponent(props) {
   :
   ''
 }
+
+
+
             
 
     <InstantSearch
@@ -52,11 +58,13 @@ function searchcomponent(props) {
 
     <Configure
             hitsPerPage={props.numberOfProducts}          
+            
+            
             facetFilters={facets}
             //filters={props.facets}
     />
     {props.showSearch ?
-      <SearchBox />
+      <SearchBox  defaultRefinement={searchVal}/>
       :
       ''
   }

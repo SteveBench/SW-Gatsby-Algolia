@@ -60,7 +60,7 @@ export default {
     },
     prepare({ title, disabled }) {
       return {
-        title: `Searchcomponent: ${disabled ? 'DISABLED' : title}`
+        title: `Search Component: ${disabled ? 'DISABLED' : title}`
       }
     }
   }

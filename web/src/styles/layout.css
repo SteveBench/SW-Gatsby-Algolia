@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #202020!important;
+}
+
+.pt-24 {
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+.container {
+  max-width: 1600px !important;
+}
+
+footer {
+  background-color: black !important
+}
 /*
 blockquote {
   font-family: monospace;

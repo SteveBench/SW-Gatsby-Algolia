@@ -16,6 +16,7 @@ const SearchBoxStyle = styled.input `
   color: black;
 `
 
+
 const Dropdown = styled.div `
      color: black;
      position: absolute;
@@ -23,12 +24,13 @@ const Dropdown = styled.div `
      width: 100vw;
      left: 0;
      padding: 20px;
-     margin-top: 26px;
+     margin-top: 20px;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 const DropdownCont = styled.ul `
-width 1200px; /* this is a quick fix */
+max-width 1600px; /* this is a quick fix */
 margin: 0 auto; /* this is a quick fix */
+padding: 20px;
 `
 
 const DropdownResults = styled.h2 `
@@ -101,7 +103,7 @@ text-align: center;
             
               <div><img src={hit.image} alt={hit.name}/><DropdownText>{hit.name}</DropdownText></div>
             ))}</Slider></DropdownCont>
-            <div className="element-viewAll"><a href={"/search/?=" + currentRefinement}>View all results</a></div>
+            <div className="element-viewAll"><a href={"/search/?Search-term=" + currentRefinement}>View all results</a></div>
             </Dropdown></li>
             : ''
             }
@@ -122,7 +124,7 @@ text-align: center;
 
         const CustomAutocomplete = connectAutoComplete(Autocomplete);
       return (
-       <CustomAutocomplete />
+       <CustomAutocomplete  />
 
         );
 

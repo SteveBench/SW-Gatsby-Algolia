@@ -3,6 +3,14 @@ import PortableText from "./portableText";
 
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
+import styled from 'styled-components'
+import Slider from "react-slick";
+
+import "../styles/slick/slick.css"; 
+import "../styles/slick/slick-theme.css";
+import "../styles/microSearch/microSearch.css";
+
+
 
 const maybeImage = illustration => {
   let img = null;
@@ -29,8 +37,10 @@ const InfoRow = props => {
   const img = maybeImage(props.illustration);
   const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
   return (
-    <div className={"flex flex-wrap pb-6"}>
+    <div className={"flex flex-wrap pb-6"}  style={{ background: `url(${props.illustration})`}} >
       <div className={"w-5/6 p-6 " + sizeClass}>
+
+        <h1>HELLO WORLD</h1>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
@@ -45,7 +55,7 @@ const InfoRowFlipped = props => {
   const img = maybeImage(props.illustration);
   const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
   return (
-    <div className={"flex flex-wrap pb-6 flex-col-reverse sm:flex-row"}>
+    <div className={"flex flex-wrap pb-6 flex-col-reverse sm:flex-row"} style={{ background: `url(${props.illustration})`}}>
       {img && <div className={"w-full " + sizeClass}>{img}</div>}
       <div className={"w-5/6 p-6 " + sizeClass}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
@@ -57,14 +67,26 @@ const InfoRowFlipped = props => {
   );
 };
 
+
+
 const InfoRows = props => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   const contentRows = (props.rows || [])
     .filter(r => !r.disabled)
     .map((r, i) => {
       return i % 2 === 0 ? <InfoRow key={r._key} {...r} /> : <InfoRowFlipped key={r._key} {...r} />;
     });
 
+  
+
   return (
+
     <section className="bg-white border-b py-8">
       <div className="container max-w-5xl mx-auto m-8">
         <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
@@ -73,7 +95,16 @@ const InfoRows = props => {
         <div className="w-full mb-4">
           <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
+        {props.carousel ?
+        <Slider {...settings}>
+       {contentRows}
+        </Slider>
+        :
+        <>
         {contentRows}
+        </>
+
+      }
       </div>
     </section>
   );

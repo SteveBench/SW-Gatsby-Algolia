@@ -4,6 +4,10 @@ export default {
   title: 'Info rows',
   fields: [
     {
+      type: 'boolean',
+      name: 'carousel'
+    },
+    {
       type: 'string',
       name: 'title'
     },

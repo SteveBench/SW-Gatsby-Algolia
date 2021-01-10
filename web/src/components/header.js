@@ -8,6 +8,8 @@ import algoliasearch from 'algoliasearch/lite';
 
 import { InstantSearch, connectStateResults} from 'react-instantsearch-dom';
 
+
+
 const NavStyles = styled.nav `
   background: black;
 `;
@@ -35,8 +37,8 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   titleClass += !textWhite || scrolled ? " text-gray-800" : "";
   titleClass += textWhite || !scrolled ? " text-white" : "";
 
-  const appId = "CIBIQR9HO1";
-  const searchKey = "57c22ea832a7582222414dd12456ceac"
+  const appId = "LRDB3IFCF0";
+  const searchKey = "0969668003a9459920213920ffc4b6ad"
   const searchClient = algoliasearch(appId, searchKey);
   
   
@@ -64,7 +66,7 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
               <li>
                 <InstantSearch
                  searchClient={searchClient}
-                 indexName="production"
+                 indexName="JR_PRD_variant_index_copy"
                 >
 
                 <MicroSearch   />

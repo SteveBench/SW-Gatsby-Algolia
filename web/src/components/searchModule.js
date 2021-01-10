@@ -27,14 +27,14 @@ const maybeImage = illustration => {
 
 function SearchModule(props) {
   const img = maybeImage(props.illustration);
-  const appId = "CIBIQR9HO1";
-const searchKey = "57c22ea832a7582222414dd12456ceac"
-const searchClient = algoliasearch(appId, searchKey);
+  const appId = "LRDB3IFCF0";
+  const searchKey = "0969668003a9459920213920ffc4b6ad"
+  const searchClient = algoliasearch(appId, searchKey);
 const Searchmodule= () => (
 
   <InstantSearch
     searchClient={searchClient}
-    indexName="production"
+    indexName="JR_PRD_variant_index_copy"
 
   >
 
@@ -42,7 +42,7 @@ const Searchmodule= () => (
     hitsperpage={props.numberOfProducts}
     // attributesToSnippet={}
     facetFilters={props.category}
-    // filters={}
+    filters={[["web:true"],["outletOnly:false"]]} 
 ></Configure>
     
 

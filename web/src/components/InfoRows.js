@@ -27,7 +27,7 @@ const maybeImage = illustration => {
     );
 
     img = (
-      <img className="w-full sm:h-64 mx-auto" src={fluidProps.src} alt={illustration.image.alt} />
+      <img src={fluidProps.src} alt={illustration.image.alt} />
     );
   }
   return img;
@@ -37,10 +37,11 @@ const InfoRow = props => {
   const img = maybeImage(props.illustration);
   const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
   return (
-    <div className={"flex flex-wrap pb-6"}  style={{ background: `url(${props.illustration})`}} >
-      <div className={"w-5/6 p-6 " + sizeClass}>
+    <div className={"flex flex-wrap pb-6 infoCols "}  style={{ background: `url(${props.illustration})`}} >
+      <div className={"flex flex-col justify-center items-center w-5/6 p-6 bg-teal-50 " + sizeClass}>
 
-        <h1>HELLO WORLD</h1>
+       
+
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
@@ -55,9 +56,9 @@ const InfoRowFlipped = props => {
   const img = maybeImage(props.illustration);
   const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
   return (
-    <div className={"flex flex-wrap pb-6 flex-col-reverse sm:flex-row"} style={{ background: `url(${props.illustration})`}}>
+    <div className={"flex flex-wrap pb-6 flex-col-reverse sm:flex-row infoCols"} style={{ background: `url(${props.illustration})`}}>
       {img && <div className={"w-full " + sizeClass}>{img}</div>}
-      <div className={"w-5/6 p-6 " + sizeClass}>
+      <div className={"flex flex-col justify-center items-center w-5/6 p-6 " + sizeClass}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
@@ -87,7 +88,7 @@ const InfoRows = props => {
 
   return (
 
-    <section className="bg-white border-b py-8">
+    <section className="bg-white border-b py-8 ">
       <div className="container max-w-5xl mx-auto m-8">
         <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           {props.title}

@@ -11,8 +11,8 @@ const HitList = ({ hit }) => {
     return (
       
         <article>
-    <img src={hit.image} alt={hit.name}/>
-          <small>{hit.name}</small>
+    <img src={hit.media.scoopImage} alt={hit.range}/>
+          <small>{hit.range}</small>
        
         </article>
      

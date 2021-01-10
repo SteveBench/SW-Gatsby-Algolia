@@ -1,15 +1,15 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { InstantSearch, connectAutoComplete} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Slider from "react-slick";
 
 import "../styles/slick/slick.css"; 
 import "../styles/slick/slick-theme.css";
 import "../styles/microSearch/microSearch.css";
 
-const appId = "IX6I8WO920";
-const searchKey = "a48810c75be34808dd19a4afa097cc2f"
+const appId = "LRDB3IFCF0";
+const searchKey = "0969668003a9459920213920ffc4b6ad"
 const searchClient = algoliasearch(appId, searchKey);
 
 const SearchBoxStyle = styled.input `
@@ -72,13 +72,12 @@ text-align: center;
         slidesToScroll: 6
       };
 
-      const Autocomplete = ({ hits, currentRefinement, refine }) => (
+      const Micro = ({ hits, currentRefinement, refine }) => (
       
         <InstantSearch
-          searchClient={searchClient}
-          indexName="production"
-          setTitle
-          currentRefinement
+        searchClient={searchClient}
+        indexName="JR_PRD_variant_index_copy"
+       
           >
         <ul>
             <li>
@@ -100,8 +99,8 @@ text-align: center;
               <Slider {...settings}>
 
               {hits.map(hit => (
-            
-              <div><img src={hit.image} alt={hit.name}/><DropdownText>{hit.name}</DropdownText></div>
+           
+              <div><img src={hit.media.scoopImage} alt={hit.range}/><DropdownText>{hit.range}</DropdownText></div>
             ))}</Slider></DropdownCont>
             <div className="element-viewAll"><a href={"/search/?Search-term=" + currentRefinement}>View all results</a></div>
             </Dropdown></li>
@@ -122,9 +121,9 @@ text-align: center;
       
         );
 
-        const CustomAutocomplete = connectAutoComplete(Autocomplete);
+        const CustomMicro = connectAutoComplete(Micro);
       return (
-       <CustomAutocomplete  />
+       <CustomMicro  />
 
         );
 

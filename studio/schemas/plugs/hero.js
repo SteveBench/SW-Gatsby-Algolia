@@ -21,6 +21,10 @@ export default {
       type: 'illustration'
     },
     {
+      name: 'test',
+      type: 'boolean'
+    },
+    {
       name: 'cta',
       type: 'cta'
     }

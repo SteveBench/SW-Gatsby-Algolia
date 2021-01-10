@@ -5,3 +5,6 @@
 
 }
 
+.slick-slide .infoCols {
+    flex-direction: row;
+}

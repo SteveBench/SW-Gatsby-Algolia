@@ -30,12 +30,14 @@ function searchcomponent(props) {
   text-align: center;
   margin: 20px 0;
   `
-  const getSearch = new URLSearchParams(window.location.search);
+
+  let pathname = typeof window !== "undefined" ? window.location.search : ""
+  const getSearch = new URLSearchParams(pathname);
   const searchVal = getSearch.get('Search-term');
 
 
-  const appId = "CIBIQR9HO1";
-  const searchKey = "57c22ea832a7582222414dd12456ceac"
+  const appId = "LRDB3IFCF0";
+  const searchKey = "0969668003a9459920213920ffc4b6ad"
   const searchClient = algoliasearch(appId, searchKey);
   const facets = '[["' + props.facets + '"]]';
   const Searchmod = () => (
@@ -52,7 +54,7 @@ function searchcomponent(props) {
 
     <InstantSearch
       searchClient={searchClient}
-      indexName="production"
+      indexName="JR_PRD_variant_index_copy"
 
     >
 

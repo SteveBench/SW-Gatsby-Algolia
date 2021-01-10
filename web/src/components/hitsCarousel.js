@@ -54,7 +54,7 @@ const Hits = ({ hits }) => (
 
               {hits.map(hit => (
             
-              <div><img src={hit.image} alt={hit.name}/><DropdownText>{hit.name}</DropdownText></div>
+              <div><img src={hit.media.scoopImage} alt={hit.range}/><DropdownText>{hit.range}</DropdownText></div>
             ))}</Slider>
   );
   

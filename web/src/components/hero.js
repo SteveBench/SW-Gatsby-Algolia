@@ -3,6 +3,8 @@ import PortableText from "./portableText";
 import clientConfig from "../../client-config";
 import CTALink from "./CTALink";
 
+
+
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
 const maybeImage = illustration => {
   let img = null;
@@ -13,7 +15,12 @@ const maybeImage = illustration => {
       clientConfig.sanity
     );
 
+ 
+
+   
+
     img = (
+      
       <img className="w-full md:w-4/5 z-50" src={fluidProps.src} alt={illustration.image.alt} />
     );
   }
@@ -25,12 +32,22 @@ function Hero(props) {
   return (
     <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left col */}
+      {/* <BgImage
+      title="astronaut"
+      fluid={illustration.image.asset._id}
+      overlayColor="#04040454"
+    >
+      <h2 style={{ color: "white" }}>Look at me!</h2>
+    </BgImage> */}
+    
       <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+      {props.test ? 'Hello World' : ''} 
         <p className="uppercase tracking-loose w-full">{props.label}</p>
         <h1 className="my-4 text-5xl font-bold leading-tight">{props.heading}</h1>
         <div className="leading-normal text-2xl mb-8">
           <PortableText blocks={props.tagline} />
         </div>
+      
         {props.cta && props.cta.title && (
           <CTALink
             {...props.cta}
